@@ -113,8 +113,10 @@ if uploaded_file is not None:
                     seedling_type = weed_prediction.get('type').capitalize() + '🌱'
                     st.markdown(
                         """
+                        <div style='text-align: center;'>
                         <h4 class='centered-header' style='display: inline;'>This seedling is a: </h4>
                         <h1 class='centered-header-green' style='display: inline;'>{}</h1>
+                        </div>
                         """.format(seedling_type),
                         unsafe_allow_html=True
                     )
@@ -123,8 +125,10 @@ if uploaded_file is not None:
 
                     st.markdown(
                         """
+                        <div style='text-align: center;'>
                         <h5 class='centered-header' style='display: inline;'>Of type: </h5>
                         <h4 class='centered-header-green' style='display: inline;'>{}</h4>
+                        </div>
                         """.format(predicted_classes.get('first_feature').capitalize()),
                         unsafe_allow_html=True
                     )
@@ -133,8 +137,10 @@ if uploaded_file is not None:
                     seedling_type = weed_prediction.get('type').capitalize() + '🚫'
                     st.markdown(
                         """
+                        <div style='text-align: center;'>
                         <h4 class='centered-header' style='display: inline;'>This seedling is a: </h4>
                         <h1 class='centered-header-orange' style='display: inline;'>{}</h1>
+                        </div>
                         """.format(seedling_type),
                         unsafe_allow_html=True
                     )
@@ -143,8 +149,10 @@ if uploaded_file is not None:
 
                     st.markdown(
                         """
+                        <div style='text-align: center;'>
                         <h5 class='centered-header' style='display: inline;'>Of type: </h5>
                         <h4 class='centered-header-orange' style='display: inline;'>{}</h4>
+                        </div>
                         """.format(predicted_classes.get('first_feature').capitalize()),
                         unsafe_allow_html=True
                     )
