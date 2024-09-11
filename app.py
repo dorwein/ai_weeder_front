@@ -101,9 +101,7 @@ if uploaded_file is not None or camera_photo is not None:
 
     if st.markdown('<div style="text-align: center;">', unsafe_allow_html=True):
         if st.button('Predict'):
-
-            img_bytes = uploaded_file.read()
-
+            img_bytes = image.read() if uploaded_file else camera_photo.getvalue()
 
             # Make API request
             api_url = 'https://aiweeder-1080691208206.europe-west1.run.app/upload_image'
