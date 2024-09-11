@@ -83,11 +83,20 @@ and getting a prediction of the seedling's type using a pre-trained model via an
 # Upload image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-if uploaded_file is not None:
+# Camera input
+camera_photo = st.camera_input("Take a photo...")
 
+if uploaded_file is not None or camera_photo is not None:
+    # Determine which image to use
+    if uploaded_file is not None:
+        image = uploaded_file
+        image_caption = "Uploaded Image"
+    else:
+        image = camera_photo
+        image_caption = "Captured Image"
 
-    # Display uploaded image
-    st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+    # Display the selected image
+    st.image(image, caption=image_caption, use_column_width=True)
     st.write("")
 
     if st.markdown('<div style="text-align: center;">', unsafe_allow_html=True):
@@ -158,28 +167,6 @@ if uploaded_file is not None:
                     )
                     st.markdown(f"<h6 class='centered-header'>(Probability: {probabilities.get('first_feature')*100:.0f}%)</h6>", unsafe_allow_html=True)
 
-
-
-                # Display the prediction
-
-                # st.markdown(
-                #     """
-                #     <h4 class='centered-header' style='display: inline;'>This seedling is a: </h4>
-                #     <h1 class='centered-header-green' style='display: inline;'>{}</h1>
-                #     """.format(seedling_type),
-                #     unsafe_allow_html=True
-                # )
-
-                # st.markdown(f"<h6 class='centered-header'>(Probability: {weed_prediction.get('probability'):.2f})</h6><br>", unsafe_allow_html=True)
-
-                # st.markdown(
-                #     """
-                #     <h5 class='centered-header' style='display: inline;'>Of type: </h5>
-                #     <h4 class='centered-header-green' style='display: inline;'>{}</h4>
-                #     """.format(predicted_classes.get('first_feature').capitalize()),
-                #     unsafe_allow_html=True
-                # )
-                # st.markdown(f"<h6 class='centered-header'>(Probability: {probabilities.get('first_feature'):.2f})</h6>", unsafe_allow_html=True)
                 st.markdown(f"<h6 class='centered-header'>{plant_info.get(predicted_classes.get('first_feature'))}</h6>", unsafe_allow_html=True)
 
             else:
