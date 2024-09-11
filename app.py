@@ -94,6 +94,8 @@ if st.button('Use Camera'):
 
 # Display camera input only when the button is pressed
 camera_photo = st.camera_input("Take a photo...") if st.session_state.show_camera else None
+if st.button('↑ Hide ↑') if st.session_state.show_camera else None:
+    st.session_state.show_camera = False
 
 if uploaded_file is not None or camera_photo is not None:
     # Determine which image to use
