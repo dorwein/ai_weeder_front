@@ -80,11 +80,16 @@ weeds. This user interface allows you to interact with the model by uploading an
 and getting a prediction of the seedling's type using a pre-trained model via an API.
 ''')
 
-# Upload image
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+col1, col2 = st.columns(2)
 
-# Camera input
-camera_photo = st.camera_input("Take a photo...")
+with col1:
+    # Upload image
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
+with col2:
+    # Camera input
+    camera_photo = st.camera_input("Take a photo...")
+
 
 if uploaded_file is not None or camera_photo is not None:
     # Determine which image to use
