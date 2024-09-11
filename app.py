@@ -80,25 +80,20 @@ weeds. This user interface allows you to interact with the model by uploading an
 and getting a prediction of the seedling's type using a pre-trained model via an API.
 ''')
 
-st.markdown('<h6 class="centered-header">Select a seedling image...</h6>', unsafe_allow_html=True)
-# Create two columns for side-by-side input options
-col1, col2 = st.columns(2)
+st.markdown('<h5 class="centered-header">Select a seedling image...</h5>', unsafe_allow_html=True)
+# File uploader
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 # State variable to control the visibility of the camera input
 if 'show_camera' not in st.session_state:
     st.session_state.show_camera = False
 
-with col1:
-    # Upload image
-    uploaded_file = st.file_uploader("Upload...", type=["jpg", "jpeg", "png"])
+# Button to toggle camera input
+if st.button('Use Camera'):
+    st.session_state.show_camera = True
 
-with col2:
-    # Button to toggle camera input
-    if st.button('Use Camera'):
-        st.session_state.show_camera = True
-
-    # Display camera input only when the button is pressed
-    camera_photo = st.camera_input("Use Camera...") if st.session_state.show_camera else None
+# Display camera input only when the button is pressed
+camera_photo = st.camera_input("Take a photo...") if st.session_state.show_camera else None
 
 if uploaded_file is not None or camera_photo is not None:
     # Determine which image to use
