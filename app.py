@@ -79,6 +79,10 @@ This model is designed for implementation on an agricultural robot to accurately
 weeds. This user interface allows you to interact with the model by uploading an image of a plants seedling
 and getting a prediction of the seedling's type using a pre-trained model via an API.
 ''')
+st.markdown('''
+The model was trained on the following common crops and weeds species in Danish agriculture: Black-grass, Charlock,
+Cleavers, Common Chickweed, Fat Hen, Loose Silky-bent, Scentless Mayweed, Sheperd‘s Purse, Small-flowered Cranesbill Common wheat, Maize, Sugar beet
+''')
 
 st.markdown('<h5 class="centered-header">Select a seedling image...</h5>', unsafe_allow_html=True)
 # File uploader
