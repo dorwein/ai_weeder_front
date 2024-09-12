@@ -39,8 +39,10 @@ weeds_dict = {'Black-grass': 'weed' ,
 # Center-aligned style for headers and titles
 header_style = """
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 h1 {
     font-size: 100px;
+    font-family: 'Bungee', sans-serif;
 }
 .centered-header {
     text-align: center;
